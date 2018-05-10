@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('cloud-apis-project-joren-jamar App', () => {
+describe('web App', () => {
   let page: AppPage;
 
   beforeEach(() => {
