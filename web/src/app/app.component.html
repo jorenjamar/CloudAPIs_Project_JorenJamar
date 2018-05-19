@@ -10,7 +10,7 @@
         <br>
         <br>
         <!-- Material form login -->
-        <form>
+        
             <h1 class="white-text">Search Movie</h1>
     
             <!-- Material input email -->
@@ -20,9 +20,9 @@
             </div>
     
             <div class="text-center mt-4">
-                <button class="btn btn-default" type="submit">Search</button>
+                <button class="btn btn-primary" (click)='search()'>Search</button>
             </div>
-        </form>
+        
         <!-- Material form login -->                  
     </div>
     <div class="col">
@@ -36,18 +36,19 @@
             <div class="card-body">
   
             <!-- Title -->
-            <h4 class="card-title"><a class="white-text">{{movieTitle}}</a></h4>
+            <h4 class="card-title"><a class="white-text">{{ lijst[1].Card[1].name }}</a></h4>
             <!-- Text -->
-            <p class="white-text">{{movieDescription}}</p>
+            <p class="white-text">{{ movieDescription }}</p>
             <!-- Button -->
             <a href="#" class="btn btn-primary" (click)="goToTrailer()"><i class="fa fa-youtube-play" aria-hidden="true"></i> Watch Trailer</a>
             <!-- Button -->
-            <a href="#" class="btn btn-primary" (click)="goToImdb()"><i class="fa fa-imdb" aria-hidden="true"></i> Watch IMdB</a>
+            <a href="#" class="btn btn-primary" (click)="goToImdb()"><i class="fa fa-imdb" aria-hidden="true"></i> Watch IMDb</a>
   
         </div>
   
         </div>
         <!-- Card -->
+        
     </div>
     <div class="col">
 
