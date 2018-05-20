@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HydramoviesService, IPokemon} from './hydramovies.service';
+import {HydramoviesService, IPokemon} from './service/hydramovies.service';
 
 @Component({
   selector: 'app-root',
@@ -16,29 +16,27 @@ export class AppComponent implements OnInit {
   imdbid : string;
   serviceApi = "https://hydramovies.com/api-v2/?source=http://hydramovies.com/api-v2/current-Movie-Data.csv&Title=Inception";
 
-  lijst : IPokemon[];
+  lijst : IPokemon;
 
   constructor(private hydramoviesService:HydramoviesService){
   }
 
   ngOnInit(){
-    this.hydramoviesService.getLijst().subscribe(d => this.lijst = d);
-    console.log(this.lijst);
-  }
-
-  
-  goToTrailer(){
-    this.ytid = "YoHD9XEInc0";
-    window.location.href = 'https://www.youtube.com/watch?v=' + this.ytid;
-  }
-
-  goToImdb(){
-    this.imdbid = "tt1375666";
-    window.location.href =  "http://www.imdb.com/title/" + this.imdbid;
+    this.hydramoviesService.getPokemon("charizard").subscribe(result => 
+    {
+      console.log("result");
+      console.log(result);
+      this.lijst = result;
+    });
   }
 
   search(){
-
+    this.hydramoviesService.getPokemon("pikachu").subscribe(result => 
+      {
+        console.log("result");
+        console.log(result);
+        this.lijst = result;
+      });
   }
 }
 

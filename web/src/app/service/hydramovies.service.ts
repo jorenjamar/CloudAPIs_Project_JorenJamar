@@ -9,8 +9,12 @@ export class HydramoviesService {
 
   }
 
-  getLijst() : Observable<IPokemon[]> {
-    return this._http.get<IPokemon[]>("https://api.pokemontcg.io/v1/cards.json");
+  getLijst() : Observable<IPokemon> {
+    return this._http.get<IPokemon>("https://api.pokemontcg.io/v1/cards");
+  }
+
+  getPokemon(poke:string) : Observable<IPokemon> {
+    return this._http.get<IPokemon>("https://api.pokemontcg.io/v1/cards?name=" + poke);
   }
 }
 
