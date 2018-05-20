@@ -1,0 +1,65 @@
+<section class="view intro-2 hm-gradient">
+    <br>
+    <div class="row">
+        <div class="col">
+    
+        </div>  
+        <div class="col">
+            <br>
+            <br>
+            <br>
+            <br>
+            <!-- Large input -->
+            <input class="form-control" type="text" #poke type="string" value="pikachu">
+            <button type="button" class="btn btn-amber btn-lg btn-block" (click)="search(poke.value)">search</button>
+            <a class="white-text" *ngIf="lijst.cards?.length > 0">{{ lijst.cards?.length }} results</a>
+        </div>
+        <div class="col">
+            <!-- Card -->
+            <div class="card" *ngFor='let poke of lijst.cards'>
+    
+                <!-- Card image -->
+                <img class="card-img-top" [src] = "poke.imageUrlHiRes" alt="Card image cap">
+      
+                <!-- Card content -->
+                <div class="card-body">
+      
+                <!-- Title -->
+                <h4 class="card-title"><a class="white-text" >{{ poke.name }}</a></h4>
+                <!-- Text -->
+                <p class="white-text">pokedex number: {{ poke.nationalPokedexNumber }}</p>
+                <!-- Button -->
+                <a href="#" class="btn btn-primary" (click)="goToDetail()"><i class="fa fa-id-card" aria-hidden="true"></i> View Detail </a>
+                
+            </div>
+      
+            </div>
+            <!-- Card -->
+
+            <div class="card" *ngIf="lijst.cards?.length == 0">
+    
+                <!-- Card image -->
+                <img class="card-img-top" src = "http://www.mypokecard.com/my/galery/MYcW2JGNonN3.jpg" alt="Card image cap">
+      
+                <!-- Card content -->
+                <div class="card-body">
+      
+                <!-- Title -->
+                <h4 class="card-title"><a class="white-text" >Error 404</a></h4>
+                <!-- Text -->
+                <p class="white-text">pokedex number: 404</p>
+                <!-- Button -->
+                <a href="#" class="btn btn-primary" (click)="goToDetail()"><i class="fa fa-id-card" aria-hidden="true"></i> View Detail </a>
+                
+            </div>
+      
+            </div>
+            
+        </div>
+        <div class="col">
+    
+        </div>    
+    </div>
+    <br>
+    </section>
+    
