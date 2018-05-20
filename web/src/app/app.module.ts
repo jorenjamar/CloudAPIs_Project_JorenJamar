@@ -21,6 +21,7 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot([
       { path: "pokeSearch", component: PokeSearchComponent},
       { path: "pokeDetail", component: PokeDetailComponent},
+      { path: "pokeDetail/:id", component: PokeDetailComponent},
       { path: "", redirectTo: "pokeSearch", pathMatch: 'full'}
     ], {useHash: true})
   ],

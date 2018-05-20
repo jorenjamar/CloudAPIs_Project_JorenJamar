@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IPokemon, PokemonService } from '../service/pokemon.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-poke-detail',
@@ -8,9 +9,10 @@ import { IPokemon, PokemonService } from '../service/pokemon.service';
 })
 export class PokeDetailComponent implements OnInit {
 
-  lijst : IPokemon
+  lijst : IPokemon;
+  id : string;
 
-  constructor(private hydramoviesService:PokemonService) { }
+  constructor(private hydramoviesService:PokemonService, private route: ActivatedRoute) { }
 
   ngOnInit(){
     this.hydramoviesService.getPokemon("pikachu").subscribe(result => 
@@ -19,6 +21,12 @@ export class PokeDetailComponent implements OnInit {
       console.log(result);
       this.lijst = result;
     });
+    console.log("route");
+    console.log(this.route);
+    this.id = this.route.snapshot.params.id;
+    console.log("name");
+    console.log(this.id);
+    
   }
 
 }
