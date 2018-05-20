@@ -15,18 +15,42 @@ export class PokeDetailComponent implements OnInit {
   constructor(private hydramoviesService:PokemonService, private route: ActivatedRoute) { }
 
   ngOnInit(){
-    this.hydramoviesService.getPokemon("pikachu").subscribe(result => 
+    this.id = this.route.snapshot.params.id;
+    this.hydramoviesService.getPokeId(this.id).subscribe(result => 
     {
       console.log("result");
       console.log(result);
       this.lijst = result;
     });
-    console.log("route");
-    console.log(this.route);
-    this.id = this.route.snapshot.params.id;
-    console.log("name");
-    console.log(this.id);
     
   }
+
+  getTypes(){
+    var num: number;
+    var text : string = "";
+    for(num=0; num < this.lijst.cards[0].types.length ;num++) {
+      console.log(this.lijst.cards[0].types[num]);
+      text = text + this.lijst.cards[0].types[num]
+      if (num + 1 < this.lijst.cards[0].types.length){
+        text = text + ", "
+      }
+    }
+    return text;
+  }
+
+  getRc(){
+    var num: number;
+    var text : string = "";
+    for(num=0; num < this.lijst.cards[0].retreatCost.length ;num++) {
+      console.log(this.lijst.cards[0].retreatCost[num]);
+      text = text + this.lijst.cards[0].retreatCost[num]
+      if (num + 1 < this.lijst.cards[0].retreatCost.length){
+        text = text + ", "
+      }
+    }
+    return text;
+  }
+
+
 
 }

@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { PokeSearchComponent } from './poke-search/poke-search.component';
 import { PokeDetailComponent } from './poke-detail/poke-detail.component';
 import { RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokeSearchComponent,
-    PokeDetailComponent
+    PokeDetailComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { RouterModule } from '@angular/router';
       { path: "pokeSearch", component: PokeSearchComponent},
       { path: "pokeDetail", component: PokeDetailComponent},
       { path: "pokeDetail/:id", component: PokeDetailComponent},
-      { path: "", redirectTo: "pokeSearch", pathMatch: 'full'}
+      { path: "", redirectTo: "pokeSearch", pathMatch: 'full'},
+      { path: "**", component: PageNotFoundComponent}
     ], {useHash: true})
   ],
   schemas: [ NO_ERRORS_SCHEMA ],

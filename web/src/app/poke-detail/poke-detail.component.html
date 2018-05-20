@@ -3,7 +3,7 @@
       <div class="col">
         
       </div>
-      <div class="col">
+      <div class="col" *ngIf="lijst">
         <!-- Card -->
         <div class="card card-cascade wider reverse">
 
@@ -23,19 +23,17 @@
           <!-- Subtitle -->
           <h6 class="font-weight-bold white-text py-2">pokedex number: {{ lijst.cards[0].nationalPokedexNumber }}</h6>
           <!-- Subtitle -->
-          <h6 class="font-weight-bold white-text py-2">types: {{ lijst.cards[0].types[1] }}</h6>
+          <h6 class="font-weight-bold white-text py-2">types: {{ getTypes() }}</h6>
           <!-- Subtitle -->
           <h6 class="font-weight-bold white-text py-2">supertype: {{ lijst.cards[0].supertype }}</h6>
           <!-- Subtitle -->
           <h6 class="font-weight-bold white-text py-2">subtype: {{ lijst.cards[0].subtype }}</h6>
           <!-- Subtitle -->
-          <h6 class="font-weight-bold white-text py-2">evolves from: {{ lijst.cards[0].evolvesFrom }}</h6>
-          <!-- Subtitle -->
-          <h6 class="font-weight-bold white-text py-2">ability: {{ lijst.cards[0].ability }}</h6>
+          <h6 class="font-weight-bold white-text py-2" *ngIf="lijst.cards[0].evolvesFrom">evolves from: {{ lijst.cards[0].evolvesFrom }}</h6>
           <!-- Subtitle -->
           <h6 class="font-weight-bold white-text py-2">hp: {{ lijst.cards[0].hp }}</h6>
           <!-- Subtitle -->
-          <h6 class="font-weight-bold white-text py-2">retreat cost: {{ lijst.cards[0].retreatCost[0] }}</h6>
+          <h6 class="font-weight-bold white-text py-2">retreat cost: {{ getRc() }}</h6>
           <!-- Subtitle -->
           <h6 class="font-weight-bold white-text py-2">converted retreatCost: {{ lijst.cards[0].convertedRetreatCost }}</h6>
           <!-- Subtitle -->
@@ -50,12 +48,6 @@
           <h6 class="font-weight-bold white-text py-2">set: {{ lijst.cards[0].set }}</h6>
           <!-- Subtitle -->
           <h6 class="font-weight-bold white-text py-2">setCode: {{ lijst.cards[0].setCode }}</h6>
-          <!-- Subtitle -->
-          <h6 class="font-weight-bold white-text py-2">attacks: {{ lijst.cards[0].attacks[0].name }}</h6>
-          <!-- Subtitle -->
-          <h6 class="font-weight-bold white-text py-2">resistances: {{ lijst.cards[0].resistances[0].type }}</h6>
-          <!-- Subtitle -->
-          <h6 class="font-weight-bold white-text py-2">weaknesses: {{ lijst.cards[0].weaknesses[0].type }}</h6>
         </div>
   
       </div>
@@ -65,4 +57,100 @@
 
       </div>
     </div>
+
+
+    <!-- Card -->
+<div class="card">
+    <!-- Card content -->
+    <div class="card-body text-center">
+        <h4 class="card-title"><strong>attacks</strong></h4>
+      <!--Table-->
+      <table class="table">
+
+          <!--Table head-->
+          <thead>
+            <tr>
+              <th class="card-title">name</th>
+              <th class="card-title">cost</th>
+              <th class="card-title">text</th>
+              <th class="card-title">damage</th>
+              <th class="card-title">converted energy cost</th>
+            </tr>
+          </thead>
+          <!--Table head-->
+
+          <!--Table body-->
+          <tbody>
+          <tr *ngFor="let attack of lijst.cards[0].attacks">
+            <th scope="row" class="font-weight-bold black-text py-2">{{ attack.name }}</th>
+            <td class="font-weight-bold black-text py-2">{{ attack.cost }}</td>
+            <td class="font-weight-bold black-text py-2">{{ attack.text }}</td>
+            <td class="font-weight-bold black-text py-2">{{ attack.damage }}</td>
+            <td class="font-weight-bold black-text py-2">{{ attack.convertedEnergyCost }}</td>
+          </tr>
+          </tbody>
+          <!--Table body-->
+
+        </table>
+        <!--Table-->
+
+        <h4 class="card-title"><strong>resistances</strong></h4>
+
+        <!--Table-->
+      <table class="table">
+
+          <!--Table head-->
+          <thead>
+            <tr>
+              <th class="card-title">type</th>
+              <th class="card-title">value</th>
+            </tr>
+          </thead>
+          <!--Table head-->
+
+          <!--Table body-->
+          <tbody>
+          <tr *ngFor="let res of lijst.cards[0].resistances">
+            <th scope="row" class="font-weight-bold black-text py-2">{{ res.type }}</th>
+            <td class="font-weight-bold black-text py-2">{{ res.value }}</td>
+          </tr>
+          </tbody>
+          <!--Table body-->
+
+        </table>
+        <!--Table-->
+
+        <h4 class="card-title"><strong>weaknesses</strong></h4>
+
+        <!--Table-->
+      <table class="table">
+
+          <!--Table head-->
+          <thead>
+            <tr>
+              <th class="card-title">type</th>
+              <th class="card-title">value</th>
+            </tr>
+          </thead>
+          <!--Table head-->
+
+          <!--Table body-->
+          <tbody>
+          <tr *ngFor="let res of lijst.cards[0].weaknesses">
+            <th scope="row" class="font-weight-bold black-text py-2">{{ res.type }}</th>
+            <td class="font-weight-bold black-text py-2">{{ res.value }}</td>
+          </tr>
+          </tbody>
+          <!--Table body-->
+
+        </table>
+        <!--Table-->
+        
+  
+    </div>
+  
+  </div>
+  <!-- Card -->
+
+
 </section>

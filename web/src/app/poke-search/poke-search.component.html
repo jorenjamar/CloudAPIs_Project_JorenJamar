@@ -29,7 +29,7 @@
                 <!-- Text -->
                 <p class="white-text">pokedex number: {{ poke.nationalPokedexNumber }}</p>
                 <!-- Button -->
-                <a href="#" class="btn btn-primary" [routerLink]="['/pokeDetail/aa']"><i class="fa fa-id-card" aria-hidden="true"></i> View Detail </a>
+                <a href="#" class="btn btn-primary"  routerLink="/pokeDetail/{{poke.id}}"><i class="fa fa-id-card" aria-hidden="true"></i> View Detail </a>
                 
             </div>
       
@@ -48,8 +48,8 @@
                 <h4 class="card-title"><a class="white-text" >Error 404</a></h4>
                 <!-- Text -->
                 <p class="white-text">pokedex number: 404</p>
-                <!-- Button -->
-                <a href="#" class="btn btn-primary" (click)="goToDetail()"><i class="fa fa-id-card" aria-hidden="true"></i> View Detail </a>
+                <!-- Text -->
+                <p class="white-text">there are no pokémons with this name. Please try to searching for an existing Pokémon. Some examples are Pikachu, Snorlax, Bulbasaur, ... Meanwhile, you have this nice Pokémon card of Spongebob to look at.</p>
                 
             </div>
       

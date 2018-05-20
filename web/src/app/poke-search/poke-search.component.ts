@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PokemonService, IPokemon} from '../service/pokemon.service';
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-poke-search',
@@ -35,7 +35,7 @@ export class PokeSearchComponent implements OnInit {
       console.log(poke);
   }
 
-  goToDetail(){
+  goToDetail(pokeId : string){
     
   }
 
