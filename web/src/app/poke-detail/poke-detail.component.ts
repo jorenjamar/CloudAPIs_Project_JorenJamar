@@ -50,7 +50,4 @@ export class PokeDetailComponent implements OnInit {
     }
     return text;
   }
-
-
-
 }

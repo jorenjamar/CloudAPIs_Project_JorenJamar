@@ -20,6 +20,8 @@ export class PokemonService {
   getPokeId(id:string) : Observable<IPokemon> {
     return this._http.get<IPokemon>("https://api.pokemontcg.io/v1/cards?id=" + id)
   }
+
+  
 }
 
 

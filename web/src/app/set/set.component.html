@@ -1,0 +1,48 @@
+<section class="view intro-2 hm-gradient">
+    <br>
+    <div class="row">
+        <div class="col">
+    
+        </div>  
+        <div class="col">
+            <!-- Card -->
+            <div class="card">
+    
+                <!-- Card image -->
+                <img class="card-img-top" [src] = "lijst.sets[0].logoUrl" alt="Card image cap">
+      
+                <!-- Card content -->
+                <div class="card-body">
+      
+                <!-- Title -->
+                <h4 class="card-title">{{ lijst.sets[0].name }}</h4>
+                <!-- Text -->
+                <p class="white-text">series: {{ lijst.sets[0].series }}</p>
+                <!-- Text -->
+                <p class="white-text">code: {{ lijst.sets[0].code }}</p>
+                <!-- Text -->
+                <p class="white-text">ptcgo code: {{ lijst.sets[0].ptcgoCode }}</p>
+                <!-- Text -->
+                <p class="white-text">total amount of cards: {{ lijst.sets[0].totalCards }}</p>
+                <!-- Text -->
+                <p class="white-text">standard legal: {{ lijst.sets[0].standardLegal }}</p>
+                <!-- Text -->
+                <p class="white-text">expanded legal: {{ lijst.sets[0].expandedLegal }}</p>
+                <!-- Text -->
+                <p class="white-text">release date: {{ lijst.sets[0].releaseDate }}</p>
+                <!-- Text -->
+                <p class="white-text">updated at: {{ lijst.sets[0].updatedAt }}</p>
+                <!-- Text -->
+                <p class="white-text">symbol:</p>
+                <img class="img-fluid" alt="Responsive image" [src] = "lijst.sets[0].symbolUrl">
+            </div>
+      
+            </div>
+            <!-- Card -->            
+        </div>
+        <div class="col">
+    
+        </div>    
+    </div>
+    <br>
+</section>

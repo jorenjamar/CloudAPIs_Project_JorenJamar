@@ -45,7 +45,10 @@
           <!-- Subtitle -->
           <h6 class="font-weight-bold white-text py-2">series: {{ lijst.cards[0].series }}</h6>
           <!-- Subtitle -->
-          <h6 class="font-weight-bold white-text py-2">set: {{ lijst.cards[0].set }}</h6>
+          <h6 class="font-weight-bold white-text py-2">
+            set:
+            <button type="button" class="btn btn-elegant" routerLink="/set/{{lijst.cards[0].set}}">{{ lijst.cards[0].set }}</button>
+          </h6>
           <!-- Subtitle -->
           <h6 class="font-weight-bold white-text py-2">setCode: {{ lijst.cards[0].setCode }}</h6>
         </div>
