@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {PokemonService, IPokemon} from '../service/pokemon.service';
 import {FormsModule} from '@angular/forms';
 import { iTypes, PokemonTypesService } from '../service/pokemon-types.service';
+import { ISubtypes, PokemonSubTypesService } from '../service/pokemon-sub-types.service';
+import { ISupertypes, PokemonSuperTypesService } from '../service/pokemon-super-types.service';
 
 @Component({
   selector: 'app-poke-search',
@@ -14,8 +16,10 @@ export class PokeSearchComponent implements OnInit {
 
   lijst : IPokemon;
   typeLijst : iTypes;
+  subLijst: ISubtypes;
+  superLijst: ISupertypes;
 
-  constructor(private hydramoviesService:PokemonService, private typesService: PokemonTypesService){
+  constructor(private hydramoviesService:PokemonService, private typesService: PokemonTypesService, private subTypeService: PokemonSubTypesService, private superTypesService: PokemonSuperTypesService){
   }
 
   ngOnInit(){
@@ -31,6 +35,20 @@ export class PokeSearchComponent implements OnInit {
         console.log("result types");
         console.log(resultTypes);
         this.typeLijst = resultTypes;
+    });
+
+    this.subTypeService.getLijst().subscribe(resultTypes => 
+      {
+        console.log("result types");
+        console.log(resultTypes);
+        this.subLijst = resultTypes;
+    });
+
+    this.superTypesService.getLijst().subscribe(resultTypes => 
+      {
+        console.log("result types");
+        console.log(resultTypes);
+        this.superLijst = resultTypes;
     });
   }
 
