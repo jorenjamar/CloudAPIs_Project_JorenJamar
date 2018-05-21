@@ -25,6 +25,14 @@ export class PokemonService {
     return this._http.get<IPokemon>("https://api.pokemontcg.io/v1/cards?types=" + type);
   }
 
+  getPokemonSubType(subtype:string) : Observable<IPokemon> {
+    return this._http.get<IPokemon>("https://api.pokemontcg.io/v1/cards?subtype=" + subtype);
+  }
+
+  getPokemonSuperType(supertype:string) : Observable<IPokemon> {
+    return this._http.get<IPokemon>("https://api.pokemontcg.io/v1/cards?supertype=" + supertype);
+  }
+
 }
 
 

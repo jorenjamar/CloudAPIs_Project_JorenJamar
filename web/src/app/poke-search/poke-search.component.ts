@@ -72,8 +72,14 @@ export class PokeSearchComponent implements OnInit {
       console.log(type);
   }
 
-  searchSubType(){
-
+  searchSubType(subtype : string){
+    this.hydramoviesService.getPokemonSubType(subtype).subscribe(result => 
+      {
+        console.log("result");
+        console.log(result);
+        this.lijst = result;
+      });
+      console.log(subtype);
   }
 
   searchSuperType(){
