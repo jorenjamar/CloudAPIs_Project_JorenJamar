@@ -10,6 +10,9 @@ import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PokemonSetsService } from './service/pokemon-sets.service';
 import { SetComponent } from './set/set.component';
+import { PokemonTypesService } from './service/pokemon-types.service';
+import { PokemonSubTypesService } from './service/pokemon-sub-types.service';
+import { PokemonSuperTypesService } from './service/pokemon-super-types.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { SetComponent } from './set/set.component';
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [ 
     PokemonService,
-    PokemonSetsService
+    PokemonSetsService,
+    PokemonTypesService,
+    PokemonSubTypesService,
+    PokemonSuperTypesService
   ],
   bootstrap: [AppComponent]
 })

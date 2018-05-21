@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PokemonService, IPokemon} from '../service/pokemon.service';
 import {FormsModule} from '@angular/forms';
+import { iTypes, PokemonTypesService } from '../service/pokemon-types.service';
 
 @Component({
   selector: 'app-poke-search',
@@ -12,16 +13,24 @@ export class PokeSearchComponent implements OnInit {
   title = 'app';
 
   lijst : IPokemon;
+  typeLijst : iTypes;
 
-  constructor(private hydramoviesService:PokemonService){
+  constructor(private hydramoviesService:PokemonService, private typesService: PokemonTypesService){
   }
 
   ngOnInit(){
     this.hydramoviesService.getPokemon("pikachu").subscribe(result => 
     {
-      console.log("result");
+      console.log("result cards");
       console.log(result);
       this.lijst = result;
+    });
+
+    this.typesService.getLijst().subscribe(resultTypes => 
+      {
+        console.log("result types");
+        console.log(resultTypes);
+        this.typeLijst = resultTypes;
     });
   }
 
@@ -35,8 +44,9 @@ export class PokeSearchComponent implements OnInit {
       console.log(poke);
   }
 
-  goToDetail(pokeId : string){
-    
+  getTypes(){
+    var lijst : string = "all of the types: <br> hey";
+    return lijst;
   }
 
 }
