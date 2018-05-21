@@ -62,9 +62,22 @@ export class PokeSearchComponent implements OnInit {
       console.log(poke);
   }
 
-  getTypes(){
-    var lijst : string = "all of the types: <br> hey";
-    return lijst;
+  searchType(type : string){
+    this.hydramoviesService.getPokemonType(type).subscribe(result => 
+      {
+        console.log("result");
+        console.log(result);
+        this.lijst = result;
+      });
+      console.log(type);
+  }
+
+  searchSubType(){
+
+  }
+
+  searchSuperType(){
+
   }
 
 }

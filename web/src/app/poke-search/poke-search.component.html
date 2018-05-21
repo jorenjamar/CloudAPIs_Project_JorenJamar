@@ -18,7 +18,7 @@
             <div class="card" *ngIf="typeLijst.types?.length > 0">
                 <h4 class="card-title">all of the types:</h4>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" *ngFor="let item of typeLijst.types">{{item}}</li>
+                    <li class="list-group-item" *ngFor="let item of typeLijst.types" (click)="searchType(item)">{{item}}</li>
                 </ul>
             </div>
             <br>
