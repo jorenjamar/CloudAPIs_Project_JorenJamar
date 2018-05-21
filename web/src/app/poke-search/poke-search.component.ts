@@ -82,8 +82,14 @@ export class PokeSearchComponent implements OnInit {
       console.log(subtype);
   }
 
-  searchSuperType(){
-
+  searchSuperType(supertype : string){
+    this.hydramoviesService.getPokemonSuperType(supertype).subscribe(result => 
+      {
+        console.log("result");
+        console.log(result);
+        this.lijst = result;
+      });
+      console.log(supertype);
   }
 
 }
