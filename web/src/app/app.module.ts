@@ -13,6 +13,7 @@ import { SetComponent } from './set/set.component';
 import { PokemonTypesService } from './service/pokemon-types.service';
 import { PokemonSubTypesService } from './service/pokemon-sub-types.service';
 import { PokemonSuperTypesService } from './service/pokemon-super-types.service';
+import { ConsolesComponent } from './consoles/consoles.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PokemonSuperTypesService } from './service/pokemon-super-types.service'
     PokeSearchComponent,
     PokeDetailComponent,
     PageNotFoundComponent,
-    SetComponent
+    SetComponent,
+    ConsolesComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +30,7 @@ import { PokemonSuperTypesService } from './service/pokemon-super-types.service'
     HttpClientModule,
     RouterModule.forRoot([
       { path: "pokeSearch", component: PokeSearchComponent},
+      { path: "consoles", component: ConsolesComponent},
       { path: "pokeDetail/:id", component: PokeDetailComponent},
       { path: "set/:name", component: SetComponent},
       { path: "", redirectTo: "pokeSearch", pathMatch: 'full'},
