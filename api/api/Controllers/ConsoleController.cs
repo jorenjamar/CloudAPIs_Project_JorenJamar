@@ -22,7 +22,7 @@ namespace api.Controllers
         public List<PokeConsole> GetAllConsoles()
         {
             return context.Consoles.ToList();
-        
+        }
 
         [HttpPost]
         public IActionResult CreateConsole([FromBody] PokeConsole newConsole)

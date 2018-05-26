@@ -23,6 +23,13 @@ namespace api.Controllers
         {
             return context.Games.Include(d => d.Console).ToList();
         }
+        [HttpPost]
+        public IActionResult CreateGame([FromBody] Game newGame)
+        {
+            context.Games.Add(newGame);
+            context.SaveChanges();
+            return Created("", newGame);
+        }
 
         [Route("{id}")] //api/vi/games/1
         [HttpGet]
