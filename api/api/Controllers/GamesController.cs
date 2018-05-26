@@ -43,5 +43,15 @@ namespace api.Controllers
 
             return Ok(game);
         }
+        [HttpDelete]
+        public IActionResult DeleteGame(int id)
+        {
+            var game = context.Games.Find(id);
+
+            //console verwijderen ..
+            context.Games.Remove(game);
+            context.SaveChanges();
+            return NoContent();
+        }
     }
 }
