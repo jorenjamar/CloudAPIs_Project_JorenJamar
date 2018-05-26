@@ -12,6 +12,16 @@ namespace Models
         {
             context.Database.EnsureCreated();
 
+            if (!context.Consoles.Any())
+            {
+                var gb = new PokeConsole()
+                {
+                    Name = "GameBoy"
+                };
+                context.Consoles.Add(gb);
+                context.SaveChanges();
+            }
+
             if (!context.Games.Any())
             {
                 

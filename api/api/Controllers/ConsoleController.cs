@@ -33,6 +33,7 @@ namespace api.Controllers
             return Created("", newConsole);
         }
 
+
         [Route("{id}")] //api/v1/consoles/1
         [HttpGet]
         public IActionResult GetGame(int id)
@@ -54,5 +55,20 @@ namespace api.Controllers
             context.SaveChanges();
             return NoContent();
         }
+        [Route("{id}")]
+        [HttpPut]
+        public IActionResult UpdateConsole([FromBody] PokeConsole updateConsole)
+        {
+            var orgConsole = context.Consoles.Find(updateConsole.Id);
+            if (orgConsole == null)
+                return NotFound();
+
+            orgConsole.Name = updateConsole.Name;
+
+            context.SaveChanges();
+            return Ok(orgConsole);
+        }
+
+
     }
 }

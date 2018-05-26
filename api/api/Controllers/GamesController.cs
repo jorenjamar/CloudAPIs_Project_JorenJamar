@@ -19,9 +19,17 @@ namespace api.Controllers
         }
 
         [HttpGet]       //api/v1/games
-        public List<Game> GetAllGames()
+        public List<Game> GetAllGames(string name, string releaseyear, string console)
         {
-            return context.Games.Include(d => d.Console).ToList();
+            IQueryable<Game> query = context.Games;
+
+            if (!string.IsNullOrWhiteSpace(name))
+                query = query.Where(d => d.Name == name);
+            if (!string.IsNullOrWhiteSpace(releaseyear))
+                query = query.Where(d => d.ReleaseYear == releaseyear);
+            if (!string.IsNullOrWhiteSpace(console))
+                query = query.Where(d => d.Console.Name == console);
+            return query.ToList();
         }
         [HttpPost]
         public IActionResult CreateGame([FromBody] Game newGame)
