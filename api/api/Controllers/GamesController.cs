@@ -19,7 +19,7 @@ namespace api.Controllers
         }
 
         [HttpGet]       //api/v1/games
-        public List<Game> GetAllGames(string name, string releaseyear, string console, string sort, int? page, int length = 20, string dir = "asc")
+        public List<Game> GetAllGames(string name, string releaseyear, string console, string sort, int? page, int length = 10, string dir = "asc")
         {
             IQueryable<Game> query = context.Games.Include(d => d.Console);
 
