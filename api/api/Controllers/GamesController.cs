@@ -19,9 +19,9 @@ namespace api.Controllers
         }
 
         [HttpGet]       //api/v1/games
-        public List<Game> GetAllGames(string name, string releaseyear, string console)
+        public List<Game> GetAllGames(string name, string releaseyear, string console, int? page, int length = 10)
         {
-            IQueryable<Game> query = context.Games;
+            IQueryable<Game> query = context.Games.Include(d => d.Console);
 
             if (!string.IsNullOrWhiteSpace(name))
                 query = query.Where(d => d.Name == name);
@@ -29,6 +29,11 @@ namespace api.Controllers
                 query = query.Where(d => d.ReleaseYear == releaseyear);
             if (!string.IsNullOrWhiteSpace(console))
                 query = query.Where(d => d.Console.Name == console);
+
+            if (page.HasValue)
+                query = query.Skip(page.Value * length);
+            query = query.Take(length);
+
             return query.ToList();
         }
         [HttpPost]
