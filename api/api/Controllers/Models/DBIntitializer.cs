@@ -17,7 +17,6 @@ namespace Models
                 
                 var rnb = new Game()
                 {
-                    Id = 1,
                     Name = "Pokemon Red and Blue",
                     ReleaseYear = "1996"
                 };
