@@ -19,7 +19,7 @@ namespace api.Controllers
         }
 
         [HttpGet]       //api/v1/games
-        public List<Game> GetAllGames(string name, string releaseyear, string console, int? page, int length = 10)
+        public List<Game> GetAllGames(string name, string releaseyear, string console, string sort, int? page, int length = 20, string dir = "asc")
         {
             IQueryable<Game> query = context.Games.Include(d => d.Console);
 
@@ -29,6 +29,31 @@ namespace api.Controllers
                 query = query.Where(d => d.ReleaseYear == releaseyear);
             if (!string.IsNullOrWhiteSpace(console))
                 query = query.Where(d => d.Console.Name == console);
+
+            if (!string.IsNullOrWhiteSpace(sort))
+            {
+                switch (sort)
+                {
+                    case "releaseyear":
+                        if (dir == "asc")
+                            query = query.OrderBy(d => d.ReleaseYear);
+                        else if (dir == "desc")
+                            query = query.OrderByDescending(d => d.ReleaseYear);
+                        break;
+                    case "console":
+                        if (dir == "asc")
+                            query = query.OrderBy(d => d.Console.Name);
+                        else if (dir == "desc")
+                            query = query.OrderByDescending(d => d.Console.Name);
+                        break;
+                    case "name":
+                        if (dir == "asc")
+                            query = query.OrderBy(d => d.Name);
+                        else if (dir == "desc")
+                            query = query.OrderByDescending(d => d.Name);
+                        break;
+                }
+            }
 
             if (page.HasValue)
                 query = query.Skip(page.Value * length);
