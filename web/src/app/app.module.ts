@@ -14,6 +14,8 @@ import { PokemonTypesService } from './service/pokemon-types.service';
 import { PokemonSubTypesService } from './service/pokemon-sub-types.service';
 import { PokemonSuperTypesService } from './service/pokemon-super-types.service';
 import { ConsolesComponent } from './consoles/consoles.component';
+import { GameConsolesService } from './service/game-consoles.service';
+import { GamesService } from './service/games.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { ConsolesComponent } from './consoles/consoles.component';
     PokemonSetsService,
     PokemonTypesService,
     PokemonSubTypesService,
-    PokemonSuperTypesService
+    PokemonSuperTypesService,
+    GameConsolesService,
+    GamesService
   ],
   bootstrap: [AppComponent]
 })

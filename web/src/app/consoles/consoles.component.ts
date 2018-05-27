@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameConsolesService, iConsole } from '../service/game-consoles.service';
 
 @Component({
   selector: 'app-consoles',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsolesComponent implements OnInit {
 
-  constructor() { }
+  lijst: iConsole[];
+
+  constructor(private gamesConsolesService: GameConsolesService) { }
 
   ngOnInit() {
+    this.gamesConsolesService.getLijst().subscribe(result => 
+      {
+        console.log("result consoles");
+        console.log(result);
+        this.lijst = result;
+      });
   }
 
 }
