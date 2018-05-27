@@ -37,6 +37,7 @@ import { AddGameComponent } from './add-game/add-game.component';
     RouterModule.forRoot([
       { path: "pokeSearch", component: PokeSearchComponent},
       { path: "consoles", component: ConsolesComponent},
+      { path: "addGame", component: AddGameComponent},
       { path: "games/:cons", component: GamesComponent},
       { path: "pokeDetail/:id", component: PokeDetailComponent},
       { path: "set/:name", component: SetComponent},
