@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GamesService, IGames } from '../service/games.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-games',
@@ -9,11 +10,13 @@ import { GamesService, IGames } from '../service/games.service';
 export class GamesComponent implements OnInit {
 
   lijst : IGames[];
+  cons : string;
 
-  constructor(private gamesService : GamesService) { }
+  constructor(private gamesService : GamesService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.gamesService.getLijst("game boy").subscribe(result => 
+    this.cons = this.route.snapshot.params.cons;
+    this.gamesService.getLijst(this.cons).subscribe(result => 
       {
         console.log("result consoles");
         console.log(result);

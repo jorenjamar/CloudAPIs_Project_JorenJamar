@@ -35,7 +35,7 @@ import { GamesComponent } from './games/games.component';
     RouterModule.forRoot([
       { path: "pokeSearch", component: PokeSearchComponent},
       { path: "consoles", component: ConsolesComponent},
-      { path: "games", component: GamesComponent},
+      { path: "games/:cons", component: GamesComponent},
       { path: "pokeDetail/:id", component: PokeDetailComponent},
       { path: "set/:name", component: SetComponent},
       { path: "", redirectTo: "pokeSearch", pathMatch: 'full'},
