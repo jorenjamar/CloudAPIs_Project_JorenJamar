@@ -20,9 +20,4 @@ export class ConsolesComponent implements OnInit {
         this.lijst = result;
       });
   }
-
-  getGames(id : number){
-    console.log(id);
-  }
-
 }
