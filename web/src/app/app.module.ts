@@ -16,6 +16,7 @@ import { PokemonSuperTypesService } from './service/pokemon-super-types.service'
 import { ConsolesComponent } from './consoles/consoles.component';
 import { GameConsolesService } from './service/game-consoles.service';
 import { GamesService } from './service/games.service';
+import { GamesComponent } from './games/games.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { GamesService } from './service/games.service';
     PokeDetailComponent,
     PageNotFoundComponent,
     SetComponent,
-    ConsolesComponent
+    ConsolesComponent,
+    GamesComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,7 @@ import { GamesService } from './service/games.service';
     RouterModule.forRoot([
       { path: "pokeSearch", component: PokeSearchComponent},
       { path: "consoles", component: ConsolesComponent},
+      { path: "games", component: GamesComponent},
       { path: "pokeDetail/:id", component: PokeDetailComponent},
       { path: "set/:name", component: SetComponent},
       { path: "", redirectTo: "pokeSearch", pathMatch: 'full'},

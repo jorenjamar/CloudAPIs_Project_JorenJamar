@@ -21,4 +21,8 @@ export class ConsolesComponent implements OnInit {
       });
   }
 
+  getGames(id : number){
+    console.log(id);
+  }
+
 }
