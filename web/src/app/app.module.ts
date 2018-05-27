@@ -17,6 +17,7 @@ import { ConsolesComponent } from './consoles/consoles.component';
 import { GameConsolesService } from './service/game-consoles.service';
 import { GamesService } from './service/games.service';
 import { GamesComponent } from './games/games.component';
+import { AddGameComponent } from './add-game/add-game.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { GamesComponent } from './games/games.component';
     PageNotFoundComponent,
     SetComponent,
     ConsolesComponent,
-    GamesComponent
+    GamesComponent,
+    AddGameComponent
   ],
   imports: [
     BrowserModule,
