@@ -1,19 +1,20 @@
 <body class="view intro-2 hm-gradient">
     <br>
-    <div class="hoogte"></div>
     <div class="row">
       <div class="col">
-
+        
       </div>  
       <div class="col">
-
+        <div class="card" *ngIf="lijst">
+          <h4 class="card-title">consoles</h4>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let item of lijst">{{item.name}}</li>
+          </ul>
+        </div>
       </div>
       <div class="col">
           
-      </div>
-      <div class="col">
-  
-      </div>    
+      </div>  
     </div>
     <br>
   </body>

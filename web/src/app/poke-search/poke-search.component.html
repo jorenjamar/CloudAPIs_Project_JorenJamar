@@ -15,12 +15,6 @@
             <a class="white-text" *ngIf="lijst.cards?.length > 0">{{ lijst.cards?.length }} results</a>
             <br>
             <br>
-            <div class="card" *ngIf="typeLijst.types?.length > 0">
-                <h4 class="card-title">all of the types:</h4>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item" *ngFor="let item of typeLijst.types" (click)="searchType(item)">{{item}}</li>
-                </ul>
-            </div>
             <br>
             <div class="card" *ngIf="subLijst.subtypes?.length > 0">
                 <h4 class="card-title">all of the subtypes:</h4>
