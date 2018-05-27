@@ -11,12 +11,12 @@ export class GamesService {
     return this._http.get<IGames[]>("http://localhost:5000/api/v1/games?console=" + cons);
   }
 
-  postGame(){
+  postGame(name: string, releaseYear: string){
 
     return this._http.post('http://localhost:5000/api/v1/games', 
     {
-      name: 'test',
-      releaseYear: '1997'
+      name: name,
+      releaseYear: releaseYear
     });
   }
 

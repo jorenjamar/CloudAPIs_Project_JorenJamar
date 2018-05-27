@@ -81,6 +81,7 @@ namespace api.Controllers
 
             return Ok(game);
         }
+        [Route("{id}")] //api/vi/games/1
         [HttpDelete]
         public IActionResult DeleteGame(int id)
         {

@@ -7,14 +7,13 @@ import { GamesService } from '../service/games.service';
   styleUrls: ['./add-game.component.scss']
 })
 export class AddGameComponent implements OnInit {
-
   constructor(private gamesService : GamesService) { }
 
   ngOnInit() {
   }
 
-  postGame(){
-    this.gamesService.postGame().subscribe(
+  postGame(name: string, releaseYear: string){
+    this.gamesService.postGame(name, releaseYear).subscribe(
       (data:any) => {
         console.log(data)
       }
