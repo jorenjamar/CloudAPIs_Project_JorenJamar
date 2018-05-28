@@ -12,7 +12,6 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AppComponent implements OnInit {
   user: Observable<firebase.User> 
-  authenticated: boolean = false;
 
   title = 'app';
   
@@ -22,7 +21,6 @@ export class AppComponent implements OnInit {
       (auth) =>{
         if(auth != null){
           this.user = af.authState;
-          this.authenticated = true;
         }
       }
     )
@@ -32,15 +30,8 @@ export class AppComponent implements OnInit {
     
   }
 
-  login(){
-    this.af.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    this.authenticated = true;
-    console.log(this.af.auth);
-  }
-
   logout(){
     this.af.auth.signOut();
-    this.authenticated = false;
   }
 
   check(){

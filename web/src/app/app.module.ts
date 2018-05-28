@@ -23,6 +23,7 @@ import { AuthService } from "./service/auth.service";
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     SetComponent,
     ConsolesComponent,
     GamesComponent,
-    AddGameComponent
+    AddGameComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

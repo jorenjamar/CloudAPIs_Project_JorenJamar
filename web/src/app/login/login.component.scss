@@ -1,0 +1,14 @@
+body, html {
+    background: url('/assets/snorlax.jpeg')no-repeat center center;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.fullSize{
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
