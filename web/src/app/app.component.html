@@ -27,5 +27,10 @@
     </div>
 </nav>
 <!--/.Navbar-->
+<div *ngIf="authenticated">
+    <router-outlet></router-outlet>
+</div>
 
-<router-outlet></router-outlet>
+<div *ngIf="!authenticated">
+    <h1>You are not authenticated!</h1>
+</div>
