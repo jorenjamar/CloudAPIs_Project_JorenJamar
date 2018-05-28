@@ -35,11 +35,24 @@ export class AppComponent implements OnInit {
   login(){
     this.af.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     this.authenticated = true;
+    console.log(this.af.auth);
   }
 
   logout(){
     this.af.auth.signOut();
     this.authenticated = false;
+  }
+
+  check(){
+    var check : boolean;
+    if(firebase.auth().currentUser == null){
+      check = false;
+    }
+    else{
+      check = true;
+    }
+    console.log(firebase.auth().currentUser);
+    return check;
   }
 }
 

@@ -10,16 +10,16 @@
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link white-text" [routerLink]="['/pokeSearch']" *ngIf="authenticated">Cards</a>
+                <a class="nav-link white-text" [routerLink]="['/pokeSearch']" *ngIf="check() == true">Cards</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link white-text" [routerLink]="['/consoles']" *ngIf="authenticated">Games</a>
+                <a class="nav-link white-text" [routerLink]="['/consoles']" *ngIf="check() == true">Games</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link white-text" (click)="login()" *ngIf="!authenticated">Login</a>
+                <a class="nav-link white-text" (click)="login()" *ngIf="check() == false">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link white-text" (click)="logout()" *ngIf="authenticated">Logout</a>
+                <a class="nav-link white-text" (click)="logout()" *ngIf="check() == true">Logout</a>
             </li>
         </ul>
         <!-- Links -->
@@ -27,10 +27,10 @@
     </div>
 </nav>
 <!--/.Navbar-->
-<div *ngIf="authenticated">
+<div *ngIf="check() == true">
     <router-outlet></router-outlet>
 </div>
 
-<div *ngIf="!authenticated">
+<div *ngIf="check() == false">
     <h1>You are not authenticated!</h1>
 </div>
