@@ -55,7 +55,7 @@ namespace api.Controllers
             context.SaveChanges();
             return NoContent();
         }
-        [Route("{id}")]
+        
         [HttpPut]
         public IActionResult UpdateConsole([FromBody] PokeConsole updateConsole)
         {

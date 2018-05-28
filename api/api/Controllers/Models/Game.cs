@@ -6,5 +6,6 @@
         public string Name { get; set; }
         public string ReleaseYear { get; set; }
         public PokeConsole Console { get; set; }
+        public int ConsoleId { get; set; }
     }
 }

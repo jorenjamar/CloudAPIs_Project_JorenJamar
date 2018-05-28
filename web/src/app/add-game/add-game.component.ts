@@ -7,13 +7,16 @@ import { GamesService } from '../service/games.service';
   styleUrls: ['./add-game.component.scss']
 })
 export class AddGameComponent implements OnInit {
+
+  consId : number = 1;
+
   constructor(private gamesService : GamesService) { }
 
   ngOnInit() {
   }
 
   postGame(name: string, releaseYear: string){
-    this.gamesService.postGame(name, releaseYear).subscribe(
+    this.gamesService.postGame(name, releaseYear, this.consId).subscribe(
       (data:any) => {
         console.log(data)
       }
