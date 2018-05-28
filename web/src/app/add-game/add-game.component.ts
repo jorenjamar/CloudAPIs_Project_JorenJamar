@@ -18,7 +18,7 @@ export class AddGameComponent implements OnInit {
   postGame(name: string, releaseYear: string){
     this.gamesService.postGame(name, releaseYear, this.consId).subscribe(
       (data:any) => {
-        console.log(data)
+        console.log(data);
       }
     );;
   }

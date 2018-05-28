@@ -26,6 +26,18 @@
             <input type="email" id="defaultFormCardEmailEx" class="form-control" #year>
 
             <br>
+
+            <label for="defaultFormCardEmailEx" class="grey-text font-weight-light">Console</label>
+            <select class="form-control" [(ngModel)]="consId">
+              <option value=1>Game Boy</option>
+              <option value=2>Game Boy Color</option>
+              <option value=3>Game Boy Advance</option>
+              <option value=4>Nintendo DS</option>
+              <option value=5>Nintendo 3DS</option>
+              <option value=6>3DS virtual machine</option>
+            </select>
+
+            <br>
             
             <div class="text-center py-4 mt-3">
                 <button class="btn btn-outline-purple" (click)="postGame(name.value, year.value)">Send<i class="fa fa-paper-plane-o ml-2"></i></button>

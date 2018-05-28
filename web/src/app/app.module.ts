@@ -18,6 +18,7 @@ import { GameConsolesService } from './service/game-consoles.service';
 import { GamesService } from './service/games.service';
 import { GamesComponent } from './games/games.component';
 import { AddGameComponent } from './add-game/add-game.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AddGameComponent } from './add-game/add-game.component';
     BrowserModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: "pokeSearch", component: PokeSearchComponent},
       { path: "consoles", component: ConsolesComponent},
