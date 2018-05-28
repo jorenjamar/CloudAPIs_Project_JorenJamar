@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './service/auth.service';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+import { Observable } from 'rxjs/Observable';
+
 
 @Component({
   selector: 'app-root',
@@ -7,10 +11,21 @@ import { AuthService } from './service/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  user: Observable<firebase.User> 
+  authenticated: boolean = false;
 
   title = 'app';
+  
 
-  constructor(private as: AuthService){
+  constructor(private as: AuthService, public af: AngularFireAuth){
+    this.af.authState.subscribe(
+      (auth) =>{
+        if(auth != null){
+          this.user = af.authState;
+          this.authenticated = true;
+        }
+      }
+    )
   }
 
   ngOnInit(){
@@ -18,7 +33,13 @@ export class AppComponent implements OnInit {
   }
 
   login(){
-    this.as.login();
+    this.af.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    this.authenticated = true;
+  }
+
+  logout(){
+    this.af.auth.signOut();
+    this.authenticated = false;
   }
 }
 

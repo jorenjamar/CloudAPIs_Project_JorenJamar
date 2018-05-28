@@ -10,13 +10,16 @@
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link white-text" [routerLink]="['/pokeSearch']">Cards</a>
+                <a class="nav-link white-text" [routerLink]="['/pokeSearch']" *ngIf="authenticated">Cards</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link white-text" [routerLink]="['/consoles']">Games</a>
+                <a class="nav-link white-text" [routerLink]="['/consoles']" *ngIf="authenticated">Games</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link white-text" (click)="login()">Login</a>
+                <a class="nav-link white-text" (click)="login()" *ngIf="!authenticated">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link white-text" (click)="logout()" *ngIf="authenticated">Logout</a>
             </li>
         </ul>
         <!-- Links -->

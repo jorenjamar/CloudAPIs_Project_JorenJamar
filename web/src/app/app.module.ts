@@ -20,6 +20,9 @@ import { GamesComponent } from './games/games.component';
 import { AddGameComponent } from './add-game/add-game.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from "./service/auth.service";
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,8 @@ import { AuthService } from "./service/auth.service";
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     RouterModule.forRoot([
       { path: "pokeSearch", component: PokeSearchComponent},
       { path: "consoles", component: ConsolesComponent},
