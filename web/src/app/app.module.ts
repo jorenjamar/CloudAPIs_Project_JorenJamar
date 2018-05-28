@@ -19,6 +19,7 @@ import { GamesService } from './service/games.service';
 import { GamesComponent } from './games/games.component';
 import { AddGameComponent } from './add-game/add-game.component';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from "./service/auth.service";
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { FormsModule } from '@angular/forms';
     PokemonSubTypesService,
     PokemonSuperTypesService,
     GameConsolesService,
-    GamesService
+    GamesService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
