@@ -24,11 +24,12 @@ namespace Models
 
             if (!context.Games.Any())
             {
-                
+
                 var rnb = new Game()
                 {
                     Name = "Pokemon Red and Blue",
-                    ReleaseYear = "1996"
+                    ReleaseYear = "1996",
+                    ConsoleId = 1
                 };
                 context.Games.Add(rnb);
                 context.SaveChanges();
