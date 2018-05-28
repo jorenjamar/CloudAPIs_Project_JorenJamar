@@ -68,6 +68,20 @@ namespace api.Controllers
             context.SaveChanges();
             return Created("", newGame);
         }
+        [HttpPut]
+        public IActionResult UpdateConsole([FromBody] Game updateGame)
+        {
+            var orgConsole = context.Games.Find(updateGame.Id);
+            if (orgConsole == null)
+                return NotFound();
+
+            orgConsole.Name = updateGame.Name;
+            orgConsole.ConsoleId = updateGame.ConsoleId;
+            orgConsole.ReleaseYear = updateGame.ReleaseYear;
+
+            context.SaveChanges();
+            return Ok(orgConsole);
+        }
 
         [Route("{id}")] //api/vi/games/1
         [HttpGet]
